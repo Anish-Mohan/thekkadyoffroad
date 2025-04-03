@@ -2,7 +2,7 @@
 deployment:
   tasks:
     # Define deployment and repository paths
-    - export DEPLOYPATH=/home/xavkvwos/public_html
+    - export DEPLOYPATH=/home/xavkvwos/public_html1
     - export REPOPATH=/home/xavkvwos/repositories/thekkadyoffroad
 
     # Force copy all files (including hidden ones) and delete removed ones
