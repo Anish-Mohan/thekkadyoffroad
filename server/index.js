@@ -12,7 +12,7 @@ app.get('/server', (req, res) => {
 
 app.get('/server/blog/:id', (req, res) => {
     let blogs = {
-       "Angamoozhy": {
+       "angamoozhy": {
           "Title": "Angamoozhy",
           "Image": "img/anga_blog.png",
           "Description": "Angamoozhy Safari is an early morning wildlife safari experience, typically starting at 5:45 AM. It is located near Gavi, Kerala, and is known for its breathtaking views, lush forests, and diverse wildlife, including elephants, deer, and various bird species",
