@@ -4,8 +4,6 @@ deployment:
     # Define deployment and repository paths
     - export DEPLOYPATH=/home/xavkvwos/public_html
     - export REPOPATH=/home/xavkvwos/repositories/thekkadyoffroad
-    
-    # Sync repository files to the deploy target path, excluding unnecessary files.
-    # --delete removes files from public_html that are no longer in the repository.
-    # --ignore-existing ensures only new and modified files are updated.
-    - rsync -av --delete --exclude='.git' --exclude='.cpanel.yml' $REPOPATH/ $DEPLOYPATH/
+
+    # Force copy all files (including hidden ones) and delete removed ones
+    - rsync -av --delete --force --exclude='.git' --exclude='.cpanel.yml' $REPOPATH/ $DEPLOYPATH/
