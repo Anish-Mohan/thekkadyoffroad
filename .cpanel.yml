@@ -1,9 +1,5 @@
 ---
 deployment:
   tasks:
-    # Define deployment and repository paths
-    - export DEPLOYPATH=/home/xavkvwos/public_html1
-    - export REPOPATH=/home/xavkvwos/repositories/thekkadyoffroad
-
-    # Force copy all files (including hidden ones) and delete removed ones
-    - rsync -av --delete --force --exclude='.git' --exclude='.cpanel.yml' $REPOPATH/ $DEPLOYPATH/
+    - export DEPLOYPATH=/home/xavkvwos/public_html/
+    - /bin/cp -R images $DEPLOYPATH
