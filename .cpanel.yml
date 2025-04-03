@@ -1,7 +1,6 @@
 ---
 deployment:
    tasks:
-     - export DEPLOYPATH=/home/xavkvwos/public_html/
-     - export SERVEDEPLOYPATH=/home/xavkvwos/server/
-     - /bin/cp -R * $DEPLOYPATH
-     - /bin/cp -R server $SERVEDEPLOYPATH
+     - export DEPLOYPATH=/home/xavkvwos/public_html && export SERVEDEPLOYPATH=/home/xavkvwos/server
+     - /bin/cp -R * "$DEPLOYPATH"
+     - /bin/cp -R server "$SERVEDEPLOYPATH"
