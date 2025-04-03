@@ -1,5 +1,5 @@
 ---
 deployment:
-  tasks:
-    - export DEPLOYPATH=/home/xavkvwos/public_html/
-    - rsync -av --delete --exclude='.git' --exclude='.cpanel.yml' ./ $DEPLOYPATH/
+   tasks:
+     - export DEPLOYPATH=/home/xavkvwos/public_html/
+     - /bin/cp -R * $DEPLOYPATH
