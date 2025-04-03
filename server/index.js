@@ -1,7 +1,7 @@
 const express = require('express')
 var cors = require('cors')
 const app = express()
-const blogs = require('./blogs.json')
+const blogsA = require('./blogs.json')
 
 
 app.use(cors())
@@ -13,7 +13,7 @@ app.get('/server', (req, res) => {
 })
 
 app.get('/server/blog/:id', (req, res) => {
-    let blogs = blogs;
+    let blogs = blogsA;
 
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(blogs[req.params.id]));
