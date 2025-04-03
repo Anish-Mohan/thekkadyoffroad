@@ -9,7 +9,4 @@ deployment:
     - export REPOPATH=/home/xavkvwos/repositories/thekkadyoffroad
     # Sync repository files to the deploy target path, excluding .git folder.
     # --delete-after will remove deleted files and folders after syncing.
-    - /bin/cp -R . $DEPLOYPATH
-    - /bin/chmod 755 ${DEPLOYPATH}
-    - /bin/find ${DEPLOYPATH} -type d -exec /bin/chmod 755 '{}' \;
-    - /bin/find ${DEPLOYPATH} -type f -exec /bin/chmod 644 '{}' \;
+    - rsync -av --dry-run --delete --exclude='.git' --exclude='.cpanel.yml' ./ $DEPLOYPATH
