@@ -31,6 +31,7 @@ app.get('/server/blogs', (req, res) => {
 
     res.send(rows)
   });
+  connection.end();
   
 
 });
