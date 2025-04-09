@@ -16,8 +16,9 @@ app.use(cors())
 const port = 3000
 
 app.get('/server', (req, res) => {
-  res.send('Hello World!')
   console.log(process.env)
+  res.send('Hello World!')
+
 })
 
 // app.get('/server/blog/:id', (req, res) => {
