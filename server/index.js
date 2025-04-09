@@ -6,9 +6,9 @@ const mysql = require('mysql')
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: process.env.db_user,
-  password: process.env.db_password,
-  database: process.env.database
+  user: 'xavkvwos_admin',
+  password: 'Djaxtech@123',
+  database: 'xavkvwos_thekkadyoffroad'
 });
 
 app.use(cors())
@@ -16,9 +16,7 @@ app.use(cors())
 const port = 3000
 
 app.get('/server', (req, res) => {
-  console.log(process.env)
   res.send('Hello World!')
-
 })
 
 // app.get('/server/blog/:id', (req, res) => {
