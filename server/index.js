@@ -4,7 +4,12 @@ const app = express()
 const blogsA = require('./blogs.json')
 const mysql = require('mysql')
 
-
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'admin',
+  database: 'xavkvwos_thekkadyoffroad'
+});
 
 app.use(cors())
 
@@ -22,31 +27,36 @@ app.get('/server', (req, res) => {
     
 // })
 
+app.get('/server/blogs', (req, res) => {
+
+  connection.connect();
+  connection.query('SELECT * from blogs', (err, rows, fields) => {
+    if (err) throw err
+
+    res.send(rows)
+  });
+  
+
+});
+
 app.get('/server/blog/:blogName', (req, res) => {
 
-  const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'admin',
-    database: 'xavkvwos_thekkadyoffroad'
-  })
-  
   connection.connect()
   let result = {};
   let blogsAr = {};
   let addsAr = {};
   
-  connection.query('SELECT *,points.title as point_title,points.description as point_description FROM `blogs` JOIN points ON blogs.ID=points.blog_id WHERE blogs.title="'+req.params.blogName+'"', (err, rows, fields) => {
+  connection.query('SELECT *,points.title as point_title,points.description as point_description,blogs.description as description_t,blogs.title as title_t FROM blogs JOIN points ON blogs.ID=points.blog_id WHERE blogs.title="'+req.params.blogName+'"', (err, rows, fields) => {
     if (err) throw err
   
     rows.forEach(element => {
-      result["Title"] = element["title"];
+      result["Title"] = element["title_t"];
       result["Image"] = element["image"];
-      result["Description"] = element["description"];
+      result["Description"] = element["description_t"];
       blogsAr[element["point_title"]]=element["point_description"];
     });
 
-    result["points"]= blogsAr;
+    result["Points"]= blogsAr;
   
     connection.query('SELECT adds.* FROM `blogs` JOIN adds ON blogs.ID=adds.blog_id WHERE blogs.title="'+req.params.blogName+'"', (err, results, fields) => {
       if (err) throw err
