@@ -25,20 +25,17 @@ app.get('/server', (req, res) => {
 
 app.get('/server/blogs', (req, res) => {
 
-  connection.connect();
   connection.query('SELECT * from blogs', (err, rows, fields) => {
     if (err) throw err
 
     res.send(rows)
   });
-  connection.end();
   
 
 });
 
 app.get('/server/blog/:blogName', (req, res) => {
 
-  connection.connect()
   let result = {};
   let blogsAr = {};
   let addsAr = {};
