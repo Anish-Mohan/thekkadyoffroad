@@ -17,6 +17,7 @@ const port = 3000
 
 app.get('/server', (req, res) => {
   res.send('Hello World!')
+  console.log(process.env)
 })
 
 // app.get('/server/blog/:id', (req, res) => {
