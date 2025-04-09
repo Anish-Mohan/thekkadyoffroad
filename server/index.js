@@ -1,15 +1,11 @@
 const express = require('express')
 var cors = require('cors')
 const app = express()
-const blogsA = require('./blogs.json')
+const blogsA = require('./blogs.json');
+const creds = require('./cred.json');
 const mysql = require('mysql')
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'xavkvwos_admin',
-  password: 'Djaxtech@123',
-  database: 'xavkvwos_thekkadyoffroad'
-});
+const connection = mysql.createConnection(creds);
 
 app.use(cors())
 
